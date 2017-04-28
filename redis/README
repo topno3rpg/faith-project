@@ -1,0 +1,21 @@
+编译redis
+
+安装ruby
+
+创建集群
+1、先启动单个节点
+nohup redis-server redis_server.conf >> log.log &
+
+2、集群
+redis-trib.rb create --replicas 1 120.27.222.115:7000 120.27.222.115:7001 \
+120.27.222.115:7002 120.27.222.115:7003 120.27.222.115:7004 120.27.222.115:7005
+
+连接集群
+redis-cli -c -h ip -p 7000
+
+关闭集群
+依次关闭集群中的每个节点
+redis-cli -c -h ip -p 7000
+shutdown
+
+
