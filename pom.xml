@@ -15,10 +15,10 @@
         <module>java-base</module>
         <module>jdbc-sharding</module>
         <module>elastic-search</module>
-        <module>dubbo</module>
         <module>mongodb</module>
         <module>solr</module>
         <module>diamond</module>
+        <module>dubbo</module>
     </modules>
 
 </project>
