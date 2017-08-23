@@ -19,6 +19,7 @@
         <module>solr</module>
         <module>diamond</module>
         <module>dubbo</module>
+        <module>netty</module>
     </modules>
 
 </project>
