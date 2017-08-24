@@ -1,7 +1,10 @@
 package com.faith.netty.nio;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -20,7 +23,8 @@ public class TimeServer {
                     .childHandler(new ChildChannelHandler());
             //绑定端口，同步等待成功
             ChannelFuture f = b.bind(port).sync();
-            //等待服务端
+            //等待服务端监听端口关闭
+            f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -33,7 +37,7 @@ public class TimeServer {
     private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
 
         protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast((ChannelHandler) new Object());
+            socketChannel.pipeline().addLast(new TimeServerHandler());
         }
     }
 
