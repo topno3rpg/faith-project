@@ -1,4 +1,4 @@
-package com.faith.netty.nio;
+package com.faith.netty.halfpack.line;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,7 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
-public class TimeServer {
+public class TimeHalfPackServer {
 
     public void bind(int port) {
         //配置服务端的NIO线程组
@@ -25,7 +25,9 @@ public class TimeServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
 
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new TimeServerHandler());
+                            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            socketChannel.pipeline().addLast(new StringDecoder());
+                            socketChannel.pipeline().addLast(new TimeHalfPackServerHandler());
                         }
 
                     });
@@ -43,6 +45,6 @@ public class TimeServer {
     }
 
     public static void main(String[] args) {
-        new TimeServer().bind(8080);
+        new TimeHalfPackServer().bind(8080);
     }
 }
