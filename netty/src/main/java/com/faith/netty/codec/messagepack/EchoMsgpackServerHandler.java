@@ -1,4 +1,4 @@
-package com.faith.netty.code.messagepack;
+package com.faith.netty.codec.messagepack;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

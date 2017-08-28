@@ -1,4 +1,4 @@
-package com.faith.netty.code.protobuf;
+package com.faith.netty.codec.protobuf;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 

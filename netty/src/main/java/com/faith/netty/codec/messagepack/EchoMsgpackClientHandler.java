@@ -1,7 +1,6 @@
-package com.faith.netty.code.messagepack;
+package com.faith.netty.codec.messagepack;
 
-import com.faith.netty.code.jdk.UserInfo;
-import io.netty.buffer.Unpooled;
+import com.faith.netty.codec.jdk.UserInfo;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 

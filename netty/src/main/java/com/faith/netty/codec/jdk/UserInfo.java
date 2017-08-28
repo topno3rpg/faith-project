@@ -1,4 +1,4 @@
-package com.faith.netty.code.jdk;
+package com.faith.netty.codec.jdk;
 
 import org.msgpack.annotation.Message;
 
