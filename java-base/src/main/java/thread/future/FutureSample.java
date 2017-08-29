@@ -5,7 +5,7 @@ import java.util.concurrent.*;
 /**
  * Created by Admin on 2016/9/19.
  */
-public class FutureBean {
+public class FutureSample {
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
